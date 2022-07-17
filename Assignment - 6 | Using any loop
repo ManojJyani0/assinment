@@ -169,22 +169,25 @@
     #include <stdio.h>
     int main()
     {
-        int input,i,arr[10];
+        int input,i,sum=0,div=1,count;
         printf("Enter a number :");
         scanf("%d",&input);
+        count=input;
+        for (i=1;i<=10;i++)
+        {   
+        if(count/10==0)
+        break;
+        count=count/10;
+        div =div*10;
+        }
         for(i=0;i<=10;i++)
         {
-            arr[i]=input%10;
-            input=input/10;
-            
+        sum=sum+input%10*div;
+        input=input/10;
+        div=div/10;
         }
-        printf("\nYour entered number is reverse :");
-        for(i=0;i<=10;i++){
-            if(arr[i]==0)
-            break;
-            printf("%d",arr[i]);
-        }
+        printf("\nYour entered number is reverse :%d",sum);
+
         printf("\n");
         return 0;
-
-    }
+   }
