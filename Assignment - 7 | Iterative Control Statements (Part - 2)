@@ -167,3 +167,24 @@ int main()
         return 0;
 }
 10. Write a program to print all Armstrong numbers under 1000
+#include <stdio.h>
+int main()
+{
+    int y,input,k,i,sum;
+        for(input=100;input<1000;input++)
+        {
+            sum=0;
+            y=input;
+            for (i=1;i<4;i++)
+            {
+                k=y%10;
+                sum=sum+k*k*k;
+                y=y/10;
+            }
+
+            if(input==sum){
+                printf(" %d",input);
+            }
+        }
+        return 0;
+}
