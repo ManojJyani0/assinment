@@ -232,19 +232,28 @@ int main(void)
 #include <stdio.h>
 int main(void)
 {
-    int input,i;
+    float input,total_amount,amount;
     printf("Enter the electricity unit :");
-    scanf("%d", &input);
-    switch(input)
+    scanf("%f", &input);
+    switch(input<=50)
     {
-        case 1 ...  50 :printf("\nTotal electricity bill is : %1.2f",input*0.50+input*0.50*0.20);
-        break;
-        case 51 ... 150 :printf("\nTotal electricity bill is : %1.2f",input*0.75+input*0.75*0.2);
-        break;
-        case 151 ... 250 :printf("\nTotal electricity bill is : %1.2f",input*1.20+input*1.20*0.20);
-        break;
-        default:printf("\nTotal electricity bill is : %1.2f",input*1.50+input*1.50*0.20);
+      case 1 : amount=input*0.50;
+                break;
+      case 0 : switch(input<=150)
+                {
+                    case 1 : amount=25+(input-50)*0.75;
+                            break;
+                    case 0 : switch(input<=250)
+                            {
+                                case 1 : amount = 100 +(input-150)*1.20;
+                                        break;
+                                case 0 : amount = 220 +(input-250)*1.50;
+                                        break;
+                            }break;
+                }break;
     } 
+    total_amount=amount+amount*.20;
+    printf("\n\ntotal electricity bill is %.2f",total_amount);
     return 0;
 }
 
