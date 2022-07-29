@@ -1,0 +1,212 @@
+1.  // Write a recursive function to print first N natural numbers
+    #include <stdio.h>
+    void fan(int);
+    int main()
+    {
+        int input;
+        printf("Enter a number :");
+        scanf("%d",&input);
+        fan(input);
+        return 0;
+    }
+    void fan (int n){
+
+        if(n==1)
+        printf("%d ",n);
+        else{
+        fan(n-1);
+        printf("%d ",n);
+        }
+    }
+
+2.  // Write a recursive function to print first N natural numbers in reverse order
+    #include <stdio.h>
+    int fan(int);
+    int main()
+    {
+        int input;
+        printf("Enter a number :");
+        scanf("%d",&input);
+        fan(input);
+        return 0;
+    }
+    int fan (int n){
+        printf("%d ",n);
+        if(n==1)
+        return 0;
+        fan(n-1);
+    }
+
+3.  // Write a recursive function to print first N odd natural numbers
+    #include <stdio.h>
+    void odd(int);
+    int main()
+    {
+        int input;
+        printf("Enter a number :");
+        scanf("%d",&input);
+        input=input*2-1;
+        odd(input);
+        return 0;
+    }
+    void odd (int n){
+
+        if(n==1||n==0)
+        printf("%d ",n);
+        else{
+        odd(n-2);
+        printf("%d ",n);
+        }
+    }
+
+4.  // Write a recursive function to print first N odd natural numbers in reverse order
+    #include <stdio.h>
+    void odd(int);
+    int main()
+    {
+        int input;
+        printf("Enter a number :");
+        scanf("%d",&input);
+        input=input*2-1;
+        odd(input);
+        return 0;
+    }
+    void odd (int n){
+
+        if(n==1||n==0)
+        printf("%d ",n);
+        else{
+        printf("%d ",n);
+        odd(n-2);
+        }
+    }
+
+5.  // Write a recursive function to print first N even natural numbers
+    #include <stdio.h>
+    void even(int);
+    int main()
+    {
+        int input;
+        printf("Enter a number :");
+        scanf("%d",&input);
+        input=input*2;
+        even(input);
+        return 0;
+    }
+    void even (int n){
+
+        if(n==1||n==2)
+        printf("%d ",n);
+        else{
+        even(n-2);
+        printf("%d ",n);
+        }
+    }
+
+6.  // Write a recursive function to print first N even natural numbers in reverse order
+    #include <stdio.h>
+    void even(int);
+    int main()
+    {
+        int input;
+        printf("Enter a number :");
+        scanf("%d",&input);
+        input=input*2;
+        even(input);
+        return 0;
+    }
+    void even (int n){
+
+        if(n==1||n==2)
+        printf("%d ",n);
+        else{
+        printf("%d ",n);
+        even(n-2);
+        }
+    }
+
+7.  // Write a recursive function to print squares of first N natural numbers
+    #include <stdio.h>
+    void square(int);
+    int main()
+    {
+        int input;
+        printf("Enter a number :");
+        scanf("%d",&input);
+        input=input;
+        square(input);
+        return 0;
+    }
+    void square (int n){
+
+        if(n==1)
+        printf("%d ",n*n);
+        else{
+        square(n-1);
+        printf("%d ",n*n);
+        }
+    }
+
+8.  // Write a recursive function to print binary of a given decimal number
+    #include <stdio.h>
+    void toBinary(int);
+    int main()
+    {
+        int input;
+        printf("Enter a number :");
+        scanf("%d",&input);
+        toBinary(input);
+        return 0;    
+    }
+    void toBinary(int n)
+    {   
+        if(n/2==0)
+        printf("1");
+        else{
+        toBinary(n/2);
+        printf("%d",n%2);
+        }
+    }
+
+9.  // Write a recursive function to print octal of a given decimal number
+    #include <stdio.h>
+    void toOctal(int);
+    int main()
+    {
+        int input;
+        printf("Enter a number :");
+        scanf("%d",&input);
+        toOctal(input);
+        return 0;    
+    }
+    void toOctal(int n)
+    {   
+        if(n/8==0)
+        printf("1");
+        else{
+        toOctal(n/8);
+        printf("%d",n%8);
+        }
+    }
+
+10. // Write a recursive function to print reverse of a given number
+    #include <stdio.h>
+    void toReverse( int);
+    int main()
+    {
+        int input;
+        printf("Enter a number :");
+        scanf("%d",&input);
+        toReverse(input);
+        printf("\n");
+        return 0;    
+    }
+    void toReverse(int n)
+    {   
+        if(n/10==0)
+        printf("%d",n%10);
+        else{
+        printf("%d",n%10);
+        toReverse(n/10);
+        }
+    }
