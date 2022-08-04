@@ -1,0 +1,385 @@
+1.  // Write a program to calculate the sum of numbers stored in an array of size 10. Take array values from the user.
+    #include<stdio.h>
+    int main()
+    {   int num[10],sum=0;
+        printf("\nEnter ten numbers:");
+        for (int i = 0; i <10; i++)
+        {
+            scanf ("%d",&num[i]);
+            sum=sum+num[i];
+        }
+        printf("\nSum of entered number is :%d \n",sum);
+        return 0;
+    }
+
+2.  // Write a program to calculate the average of numbers stored in an array of size 10. Take array values from the user.
+    #include<stdio.h>
+    int main()
+    {   int num[10],sum=0;
+        printf("\nEnter ten numbers:");
+        for (int i = 0; i <10; i++)
+        {
+            scanf ("%d",&num[i]);
+            sum=sum+num[i];
+        }
+        printf("\nSum of entered number is :%.2f \n",sum/10.0);
+        return 0;
+    }
+
+3.  // Write a program to calculate the sum of all even numbers and sum of all oddnumbers, which are stored in an array of size 10. Take array values from the user.
+    #include <stdio.h>
+    int main()
+    {
+        int i,num[10],se,so;
+        printf("Enter ten number: ");
+        for (i=0;i<10;i++)
+        scanf("%d",&num[i]);
+        for (i=0,se=0,so=0;i<10;i++)
+        if (num[i]%2)
+        {
+            so=so+num[i];
+        }else
+        {
+            se=se+num[i];
+        }
+        printf("\nSum of even is : %d \n Sum of odd is %d\n",se,so);
+        return 0;  
+        
+    }
+
+
+4.  // Write a program to find the greatest number stored in an array of size 4. Take array values from the user.
+    #include <stdio.h>
+    int main()
+    {
+    int arr[10],i,j,k;
+        printf("Enter ten number :");
+        for ( i = 0; i < 10; i++)
+        {
+            scanf("%d",&arr[i]);
+        }
+        for ( j = 1,i=0; j < 10; j++)
+        {
+            if (arr[i]<arr[j])
+            {
+                k=arr[j];
+                i=j;
+            }else 
+            {
+                k=arr[i];
+            }
+            
+        }
+        printf("\nGretest number is : %d \n",k);
+        return 0;
+    
+    }
+
+5.  // Write a program to find the smallest number stored in an array of size 10. Take array values from the user.
+    #include <stdio.h>
+    int main()
+    {
+    int arr[10],i,j,k;
+        printf("Enter ten number :");
+        for ( i = 0; i < 10; i++)
+        {
+            scanf("%d",&arr[i]);
+        }
+        for ( j = 1,i=0; j < 10; j++)
+        {
+            if (arr[i]>arr[j])
+            {
+                k=arr[j];
+                i=j;
+            }else 
+            {
+                k=arr[i];
+            }
+            
+        }
+        printf("\nSmallest number stored in an array : %d \n",k);
+        return 0;
+    
+    }
+
+6.  // Write a program to sort elements of an array of size 10. Take array values from the user.
+        #include<stdio.h>
+    int smallest(int arr[],int);
+    int findindex(int arr[],int);
+    void sift(int arr[] ,int);
+    int shorting(int arr[]);
+    int main()
+    {
+        int arr[10];
+        
+        printf("Enter ten number :");
+        for ( int i = 0; i < 10; i++)
+        {
+            scanf("%d",&arr[i]);
+        }
+        shorting(arr);
+
+
+    }
+    int shorting(int arr[])
+    {   int newarr[10],last=10,k,n;
+        for (int i = 0; i < 10; i++)
+        {   
+            k=smallest(arr,last);
+            newarr[i]=k;
+            n=findindex(arr,k);
+            sift(arr ,n);
+            last--;
+        }
+        for ( int i = 0; i < 10; i++)
+        {
+            printf("%d ",newarr[i]);
+        }
+        
+    }
+    void sift(int arr[] ,int pos)
+    {
+        for (int i = pos; i <10 ; i++)
+        {
+            arr[i]=arr[i+1];
+        }
+        arr[9]=0;
+    }
+    int findindex(int arr[],int value)
+    {   
+        for (int i = 0; i < 10; i++)
+        {
+            if (value==arr[i])
+            {
+                return i;
+            }
+            
+        }
+        
+    }
+    int smallest(int arr[],int last)
+    {
+    int i,j,k;
+        for ( j = 0,i=0; j <last; j++)
+        {
+            if (arr[i]>arr[j])
+            {
+                k=arr[j];
+                i=j;
+            }else 
+                k=arr[i];   
+        }
+        return k;
+    
+    }
+
+6a. // Write a program to sort elements of an array of size 10. Take array values from the user.
+    #include <stdio.h>
+    void main()
+
+    {
+        int i, j, a, n, number[30];
+        printf("Enter the value of N \n");
+        scanf("%d", &n);
+        printf("Enter the numbers \n");
+        for (i = 0; i < n; ++i)
+            scanf("%d", &number[i]);
+        for (i = 0; i < n; ++i)
+        {
+            for (j = i + 1; j < n; ++j)
+            {
+                if (number[i] > number[j])
+                {
+                    a = number[i];
+                    number[i] = number[j];
+                    number[j] = a;
+                }
+            }
+        }
+        printf("The numbers arranged in ascending order are given below \n");
+        for (i = 0; i < n; ++i)
+            printf("%d\n", number[i]);
+    }
+
+7.  // Write a program to find second largest in an array.Take array values from the user.
+    #include<stdio.h>
+    int greatest(int arr[],int);
+    int findindex(int arr[],int);
+    void sift(int arr[] ,int);
+    int shorting(int arr[]);
+    int main()
+    {
+        int arr[10];
+        
+        printf("Enter ten number :");
+        for ( int i = 0; i < 10; i++)
+        {
+            scanf("%d",&arr[i]);
+        }
+        printf("Second largest value : %d\n",shorting(arr));
+
+
+    }
+    int shorting(int arr[])
+    {   int newarr[10],last=10,k,n;
+        for (int i = 0; i < 10; i++)
+        {   
+            k=greatest(arr,last);
+            newarr[i]=k;
+            n=findindex(arr,k);
+            sift(arr ,n);
+            last--;
+        }
+        return newarr[8];
+        
+    }
+    void sift(int arr[] ,int pos)
+    {
+        for (int i = pos; i <10 ; i++)
+        {
+            arr[i]=arr[i+1];
+        }
+        arr[9]=0;
+    }
+    int findindex(int arr[],int value)
+    {   
+        for (int i = 0; i < 10; i++)
+        {
+            if (value==arr[i])
+            {
+                return i;
+            }
+            
+        }
+        
+    }
+    int greatest(int arr[],int last)
+    {
+    int i,j,k;
+        for ( j = 0,i=0; j <last; j++)
+        {
+            if (arr[i]>arr[j])
+            {
+                k=arr[j];
+                i=j;
+            }else 
+                k=arr[i];   
+        }
+        return k;
+    
+    }
+
+8.  //Write a program to find the second smallest number in an array.Take array values from the user.
+    #include<stdio.h>
+    int smallest(int arr[],int);
+    int findindex(int arr[],int);
+    void sift(int arr[] ,int);
+    int shorting(int arr[]);
+    int main()
+    {
+        int arr[10];
+        
+        printf("Enter ten number :");
+        for ( int i = 0; i < 10; i++)
+        {
+            scanf("%d",&arr[i]);
+        }
+        printf("Second smallest value : %d\n",shorting(arr));
+
+
+
+    }
+    int shorting(int arr[])
+    {   int newarr[10],last=10,k,n;
+        for (int i = 0; i < 10; i++)
+        {   
+            k=smallest(arr,last);
+            newarr[i]=k;
+            n=findindex(arr,k);
+            sift(arr ,n);
+            last--;
+        }
+        return newarr[1];
+        
+    }
+    void sift(int arr[] ,int pos)
+    {
+        for (int i = pos; i <10 ; i++)
+        {
+            arr[i]=arr[i+1];
+        }
+        arr[9]=0;
+    }
+    int findindex(int arr[],int value)
+    {   
+        for (int i = 0; i < 10; i++)
+        {
+            if (value==arr[i])
+            {
+                return i;
+            }
+            
+        }
+        
+    }
+    int smallest(int arr[],int last)
+    {
+    int i,j,k;
+        for ( j = 0,i=0; j <last; j++)
+        {
+            if (arr[i]>arr[j])
+            {
+                k=arr[j];
+                i=j;
+            }else 
+                k=arr[i];   
+        }
+        return k;
+    
+    }
+
+9.  //Write a program in C to read n number of values in an array and display it in reverse order. Take array values from the user.
+    #include<stdio.h>
+    int main()
+    {
+        int n,input[]={5,6,8,9,10,25,45,2},rev[n],i;
+        printf("Enter the values of N :");
+        scanf("%d",&n);
+        for (i = 0; i < n; i++)
+        {
+            // scanf("%d",&input[i]);
+            rev[n-i]=input[i];
+        }
+        for (i = 0; i < n; i++)
+        {
+            printf("%d ",rev[i]);
+        }
+        return 0;
+        
+    }
+
+
+10. // Write a program in C to copy the elements of one array into another array.Take array values from the user.
+    #include<stdio.h>
+    int main()
+    {
+        int arr[5],copyarr[5];
+        
+        printf("Enter ten number :");
+        for ( int i = 0; i < 5; i++)
+        {
+            scanf("%d",&arr[i]);
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            copyarr[i]=arr[i];
+        }
+        for (int i = 0; i < 5; i++)
+        {
+        printf("%d ",copyarr[i]);       
+        }
+        return 0;
+
+
+    }
+
