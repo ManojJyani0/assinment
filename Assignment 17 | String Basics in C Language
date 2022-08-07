@@ -1,0 +1,224 @@
+1.  // Write a program to calculate the length of the string. (without using built-in method)
+    #include<stdio.h>
+    int main()
+    {
+        char str[20]="Manoj Jyani";
+        int count=0;
+        for (int i = 0; str[i]; i++)
+        {
+            count++;
+        }
+        return 0;
+        
+    }
+
+2.  // Write a program to count the occurrence of a given character in a given string.
+    #include<stdio.h>
+    int main()
+    {
+        char str[20]="Manoj Jyani",input;
+        int count=0;
+        scanf("%c",&input);
+        
+        for (int i = 0; str[i]; i++)
+        {
+            if (input==str[i])
+            {
+                count++;
+            }
+        }
+        printf("occurrence of a given character in a given string : %d ",count);
+        return 0;
+        
+    }
+
+3.  // Write a program to count vowels in a given string
+    #include<stdio.h>
+    int main()
+    {
+        char str[20]="Manoj Jyani",vowels[10]={'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U',};
+        int input=0;
+        
+        for (int i = 0; str[i]; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if (str[i]==vowels[j])
+                {
+                    input++;
+                }
+            
+            }
+            
+        }
+        printf("Vowels in a given string : %d ",input);
+        return 0;
+        
+    }
+
+4.  // Write a program to convert a given string into uppercase
+    #include <stdio.h>
+    int main()
+    {
+        char str[200]="Write a program to convert a given string into uppercase",newstr[200];
+        
+        for (int i = 0; str[i]; i++)
+        {
+            if (str[i]==' ')
+            {
+                newstr[i]=' ';
+            }
+            else if (str[i]<91&&str[i]>64)
+            newstr[i]=str[i];
+            else if(96<str[i]&&str[i]<123)
+            newstr[i]=str[i]-32;
+            
+        }
+
+        for (int i = 0; newstr[i]; i++)
+        {
+            printf("%c",newstr[i]);
+        }
+        return 0;
+        
+    }
+
+5.  // Write a program to convert a given string into lowercase
+    #include <stdio.h>
+    int main()
+    {
+        char str[200]="WRITE A PROGRAM TO CONVERT A GIVEN STRING INTO LOWERCASE",newstr[200];
+        
+        for (int i = 0; str[i]; i++)
+        {
+            if (str[i]==' ')
+            {
+                newstr[i]=' ';
+            }
+            else if (str[i]<91&&str[i]>64)
+            newstr[i]=str[i]+32;
+            else if(96<str[i]&&str[i]<123)
+            newstr[i]=str[i];
+            
+        }
+
+        for (int i = 0; newstr[i]; i++)
+        {
+            printf("%c",newstr[i]);
+        }
+        return 0;
+        
+    }
+
+6.  // Write a program to reverse a string.
+    #include<stdio.h>
+    int main()
+    {
+        char str[20]="Manoj Jyani",newstr[20];
+        int count=0,j=0;
+        for (int i = 0; str[i]; i++)
+        {
+            count++;
+        }
+        for (int i = count-1; i>=0; i--,j++)
+        {
+            newstr[j]=str[i];
+        }
+        newstr[j]='\0';
+        for (int i = 0; newstr[i]; i++)
+        {
+            printf("%c",newstr[i]);
+        }
+        return 0;
+        
+    }
+
+7.  // Write a program in C to count the total number of alphabets, digits and special characters in a string.
+    #include <stdio.h>
+    int main()
+    {
+        char str[200]="It\'s a 7-bit character code where every single bit represents a unique character. On this webpage you will find 8 bits, 256 characters,",newstr[200];
+        int alpha=0,digit=0,sp=0;
+        
+        for (int i = 0; str[i]; i++)
+        {
+            if (str[i]>='0'&&str[i]<='9')
+                digit++;
+            else if ((str[i]>=65&&str[i]<=90)||(str[i]>=97&&str[i]<=122))
+                alpha++;
+            else 
+                sp++;
+            
+        }
+        printf("total number of alphabets = %d, digits = %d and special characters = %d in a string.\n",alpha,digit,sp);    
+        return 0;
+        
+    }
+
+8.  // Write a program in C to copy one string to another string.
+    #include<stdio.h>
+    int main()
+    {
+        char str[20]="Manoj Jyani",newstr[20];
+        int i;
+        for (i = 0;str[i]; i++)
+        {
+            newstr[i]=str[i];
+        }
+        newstr[i]='\0';
+        for (int i = 0; newstr[i]; i++)
+        {
+            printf("%c",newstr[i]);
+        }
+        return 0;
+        
+    }
+
+9.  // Write a C program to sort a string array in ascending order.
+    #include<stdio.h>
+    int main()
+    {   
+        char str[20]="manoj jyani",k;
+        int i;
+        for (i = 0; i < str[i]; i++)
+        {   
+            for (int j = 0; j < i; j++)
+            {
+                if (str[i]<str[j])
+                {
+                    k=str[i];
+                    str[i]=str[j];
+                    str[j]=k;
+                }
+            }     
+            
+        }
+        for ( int j = 0;j<i ; j++)
+        {
+            printf("%c",str[j]);
+        }
+        
+    }
+
+10. // Write a program in C to Find the Frequency of Characters.
+    #include<stdio.h>
+    int main()
+    {
+        char str[20]="manoj jyani";
+        int k;
+        for (int i = 0; str[i]; i++)
+        {
+            k=1;
+            for (int j = 0; str[j]; j++)
+            {
+                if (str[i]==str[j]&&i!=j)
+                {
+                    k++;
+                }
+                
+            }
+            printf("%c\'s frequency is : %d\n",str[i],k);
+            
+        }
+        
+    }
