@@ -1,0 +1,259 @@
+1.  // Write a function to calculate length of the string
+    #include<stdio.h>
+    int lengthstr(char str[])
+    {   
+        int i;
+        for (i = 0; str[i]; i++);
+        return i;
+    }
+    int main()
+    {
+        char str[200]="Write a function to calculate length of the string";
+        printf("Length of the string is : %d \n",lengthstr(str));
+        return 0;
+    }
+
+2.  // Write a function to reverse a string.
+    #include<stdio.h>
+    #include<string.h>
+    void reverse(char str[],char rev[])
+    {
+        int i;
+        for (i = 0; str[i]; i++);
+        for (int j = 0;str[j]; j++,i--)
+        {
+            rev[j]=str[i-1];
+        }
+        
+    }
+    int main()
+    {
+        char str[200]="Write a function to reverse a string.",rev[200];
+        reverse(str,rev);
+        puts(rev);
+        return 0;
+    }
+
+3.  // Write a function to compare two strings.
+    #include<stdio.h>
+    int compare(char str[],char newstr[])
+    {
+        for (int i = 0; str[i]||newstr[i]; i++)
+        {
+            if ((str[i]!=newstr[i]))
+            return 0;
+        }
+        return 1;
+    }
+    int main()
+    {
+        char str[20]="Manoj Jyani",newstr[20]="Manoj jyani";
+        if(compare(str,newstr))
+        printf("Both strings are same.\n");
+        else
+        printf("Both strings are difrent.\n");
+        return 0;
+    }
+
+4.  // Write a function to transform string into uppercase
+    #include <stdio.h>
+    void touppercase(char str[])
+    {
+        for (int i = 0; str[i]; i++)
+        {
+            if (str[i]==' ')
+            {
+                str[i]=' ';
+            }
+            else if (str[i]<91&&str[i]>64)
+            str[i]=str[i];
+            else if(96<str[i]&&str[i]<123)
+            str[i]=str[i]-32;
+            
+        }
+    }
+    int main()
+    {
+        char str[200]="Write a program to convert a given string into uppercase";
+        touppercase(str);
+        puts(str);
+        return 0;
+        
+    }
+
+5.  // Write a function to transform a string into lowercase
+    #include <stdio.h>
+    void tolowercase(char str[])
+    {
+        for (int i = 0; str[i]; i++)
+        {
+            if (str[i]==' ')
+            {
+                str[i]=' ';
+            }
+            else if (str[i]<91&&str[i]>64)
+            str[i]=str[i]+32;
+            else if(96<str[i]&&str[i]<123)
+            str[i]=str[i];
+            
+        }
+    }
+    int main()
+    {
+        char str[200]="WRITE A PROGRAM TO CONVERT A GIVEN STRING INTO LOWERCASE";
+        tolowercase(str);
+        puts(str);
+        return 0;
+        
+    }
+
+6.  // Write a function to check whether a given string is an alphanumeric string or not. (Alphanumeric string must contain at least one alphabet and one digit)
+    #include <stdio.h>
+    int alphanumeric(char str[])
+    {
+        int alpha=0,num=0;
+        for (int i = 0; str[i]; i++)
+        {
+            if (str[i]<'9'&&str[i]>'0')
+            num++;
+            else if (str[i]<91&&str[i]>64)
+            alpha++;
+            else if(96<str[i]&&str[i]<123)
+            alpha++;
+        
+            if (alpha&&num)
+            {
+                return 1;
+            }
+            
+            
+        }
+        return 0;
+    }
+    int main()
+    {
+        char str[200]="Information Interchange. It's a 7-bit character code where every single bit represents a unique character.";
+        if(alphanumeric(str))
+        printf("string is a alphanumeric.\n");
+        else
+        printf("string is not a alphanumeric.\n");
+        
+        return 0;
+        
+    }
+
+7.  // Write a function to check whether a given string is palindrome or not.
+    #include<stdio.h>
+    void reverse(char str[],char newstr[])
+    {
+        int i;
+        for (i = 0; str[i]; i++);
+        for (int j = 0;str[j]; j++,i--)
+        {
+            newstr[j]=str[i-1];
+        }
+        
+    }
+    int compare(char str[],char newstr[])
+    {
+        for (int i = 0; str[i]; i++)
+        {
+            if ((str[i]!=newstr[i]))
+            return 0;
+        }
+        return 1;
+    }
+    int main()
+    {
+        char str[20]="manoj",newstr[20];
+        reverse(str,newstr);
+        if(compare(str,newstr))
+        printf("Given string is palindrome.\n");
+        else
+        printf("Given string is not a palindrome..\n");
+        return 0;
+    }
+
+8.  // Write a function to count words in a given string
+    #include<stdio.h>
+    int word_count(char str[])
+    {
+        int count=0;
+        for (int i = 0; str[i]; i++)
+        {
+            if(str[i]==' ')
+            count++;
+        }
+        return ++count;
+    }
+    int main()
+    {
+        char str[200]="Write a function to count words in a given string";
+        printf("Words in a given string : %d.\n",word_count(str));
+        
+        return 0;
+    }
+
+9.  // Write a function to reverse a string word wise. (For example if the given string is “Mysirg Education Services” then the resulting string should be “Services Education Mysirg” )
+    #include<stdio.h>
+    int word_rev(char str[])
+    {
+        int i;
+        for ( i = 0; str[i]; i++);
+        for (int j = i; j>=0; j--)
+        {
+
+            if (str[j]==' ')
+            {
+                for (int k =j+1 ;str[k]; k++)
+                {
+                    if (str[k]==' ')
+                    {
+                        break;
+                    }
+                    printf("%c",str[k]);
+                }
+                printf(" ");
+            }
+            else if(j == 0)
+            {
+                for (int k =j ;str[k]!=' '; k++)
+                {
+                    printf("%c",str[k]);
+                }
+            }
+            
+        }
+    }
+    int main()
+    {
+        char str[200]="Mysirg Education Services";
+        word_rev(str);
+        
+        return 0;
+    }
+
+10. // Write a function to find the repeated character in a given string.
+    #include<stdio.h>
+    void repchar(char str[])
+    {
+        for (int i = 0; str[i]; i++)
+        {
+            for (int j = 0; str[j]; j++)
+            {
+                if (str[i]==str[j]&&i!=j)
+                {
+                    printf("%c",str[i]);
+                }
+                
+            }
+            
+        }
+    }
+    int main()
+    {
+        char str[20]="manoj jyani";
+        repchar(str);
+        return 0;
+        
+    }
