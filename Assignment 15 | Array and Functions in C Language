@@ -1,0 +1,313 @@
+1.  // Write a function to find the greatest number from the given array of any size. (TSRS)
+    #include<stdio.h>
+    int greatest(int arr[], int n)
+    {
+        
+        int i,j,k;
+        for ( j = 0,i=0; j <n; j++)
+        {
+            if (arr[i]<arr[j])
+            {
+                k=arr[j];
+                i=j;
+            }else 
+                k=arr[i];   
+        }
+        return k;
+    
+    }
+    int main ()
+    {
+        int n;
+        int arr[20];
+        printf("Enter size of a array :");
+        scanf("%d",&n);
+        for ( int i = 0; i < n; i++)
+        {
+            scanf("%d",&arr[i]);
+        }
+        printf("geretest value is : %d \n",greatest(arr,n));
+        return 0;
+    }
+
+2.  // Write a function to find the smallest number from the given array of any size. (TSRS)
+    #include<stdio.h>
+    int smallest(int arr[], int n)
+    {
+        
+        int i,j,k;
+        for ( j = 0,i=0; j <n; j++)
+        {
+            if (arr[i]>arr[j])
+            {
+                k=arr[j];
+                i=j;
+            }else 
+                k=arr[i];   
+        }
+        return k;
+    
+    }
+    int main ()
+    {
+        int n;
+        int arr[20];
+        printf("Enter size of a array :");
+        scanf("%d",&n);
+        for ( int i = 0; i < n; i++)
+        {
+            scanf("%d",&arr[i]);
+        }
+        printf("geretest value is : %d \n",smallest(arr,n));
+        return 0;
+    }
+
+3.  // Write a function to sort an array of any size. (TSRS)
+    #include<stdio.h>
+    int shorting(int arr[],int);
+    int main()
+    {   int n,arr[100];
+        printf("Enter size of array :");
+        scanf("%d",&n);
+        printf("Enter %d values :",n);
+        for ( int i = 0; i < n; i++)
+        {
+            scanf("%d",&arr[i]);
+        }
+        shorting(arr,4);
+
+
+    }
+    int shorting(int arr[],int last)
+    {   
+        for (int i = 0,k; i < last; i++)
+        {   
+            for (int j = 0; j < i; j++)
+            {
+                if (arr[i]>arr[j])
+                {
+                    k=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=k;
+                }
+            }     
+            
+        }
+        for ( int i = 0; i < last; i++)
+        {
+            printf("%d ",arr[i]);
+        }
+        
+    }
+
+4.  // Write a function to rotate an array by n position in d direction. The d is an indicative value for left or right. (For example, if array of size 5 is [32, 29, 40, 12, 70]; n is 2 and d is left, then the resulting array after left rotation 2 times is [40, 12, 70, 32, 29] )
+    #include<stdio.h>
+    int rotate(int arr[],int n,int size)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            int m;
+            for (int j = 0; j < size; j++)
+            {
+            
+                m=arr[0];
+                arr[j]=arr[j+1];
+                    
+            }
+            arr[size-1]=m;
+        }
+        
+        
+    }
+    int main()
+    {
+        int pos,n,arr[20];
+        printf("Enter array size and poszion:");
+        scanf("%d%d",&n,&pos);
+        for (int i = 0; i < n; i++)
+        {
+            scanf("%d",&arr[i]);
+        }
+        for (int i = 0; i < n; i++)
+        {
+            printf("%d ",arr[i]);
+        }
+        printf("\n");
+        rotate(arr,pos,n);
+        for (int i = 0; i < n; i++)
+        {
+            printf("%d ",arr[i]);
+        }
+    }
+
+5.  // Write a function to find the first occurrence of adjacent duplicate values in the array. Function has to return the value of the element.
+    #include<stdio.h>
+    int focc(int arr[],int n)
+    {
+        int k;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 1; j < n; j++)
+            {
+                if (arr[i]==arr[j]&&i!=j)
+                {
+                    k=arr[j];
+                }
+                
+            }
+            
+        }
+        return k;
+        
+    }
+    int main()
+    {
+        int n=10,arr[10]={10,25,15,24,11,13,45,9,11,31};
+        printf("first occ is : %d",focc(arr,n));
+    }
+
+6.  // Write a function in C to read n number of values in an array and display it in reverse order.
+    #include <stdio.h>
+    void reverse()
+    {
+        int n,arr[50];
+        printf("Enter array size :");
+        scanf("%d",&n);
+        for (int i = 0; i < n; i++)
+        {
+            scanf("%d",&arr[i]);
+        }
+        for (int i = n-1; i >=0; i--)
+        {
+            printf("%d ",arr[i]);
+        }
+        
+    }
+    int main()
+    {
+        reverse();
+        return 0;
+    }
+
+7.  // Write a function in C to count a total number of duplicate elements in an array.
+    #include<stdio.h>
+    int focc(int arr[],int n)
+    {
+        int k=0;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                if (arr[i]==arr[j]&&i!=j)
+                {
+                    k++;
+                }
+                
+            }
+            
+        }
+        return k/2;
+        
+    }
+    int main()
+    {
+        int n=10,arr[10]={10,25,15,13,11,13,45,9,11,31};
+        printf("first occ is : %d",focc(arr,n));
+        return 0;
+    }
+
+8.  // Write a function in C to print all unique elements in an array.
+    #include<stdio.h>
+    int focc(int arr[],int n)
+    {
+        int k;
+        for (int i = 0; i < n; i++)
+        {
+            k=0;
+            for (int j = 0; j < n; j++)
+            {
+                if (arr[i]==arr[j]&&i!=j)
+                {
+                    k=j;
+                }
+                
+            }
+            if (k==0)
+            {
+                printf("%d ",arr[i]);
+            }
+            
+        }
+        
+    }
+    int main()
+    {
+        int n=10,arr[10]={10,25,15,13,11,13,45,9,11,31};
+        focc(arr,n);
+        return 0;
+    }
+
+9.  // Write a function in C to merge two arrays of the same size sorted in descending order.
+    #include <stdio.h>
+    void merge (int arr[],int brr[],int newarr[])
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            newarr[i]=arr[i];
+            newarr[i+5]=brr[i];
+        }
+        for (int i = 0,k; i < 10; i++)
+            {   
+                for (int j = 0; j < i; j++)
+                {
+                    if (newarr[i]>newarr[j])
+                    {
+                        k=newarr[i];
+                        newarr[i]=newarr[j];
+                        newarr[j]=k;
+                    }
+                }     
+                
+            }
+    }
+    int main()
+    {
+        int newarr[10],arr[5]={10,25,15,13,11},brr[5]={13,45,9,11,31};
+        merge(arr,brr,newarr);
+        for (int i = 0; i < 10; i++)
+        {
+            printf("%d ",newarr[i]);
+
+        }
+        return 0;
+
+    }
+
+
+10. // Write a function in C to count the frequency of each element of an array.
+    #include<stdio.h>
+    int frequency(int arr[],int n)
+    {
+        int k;
+        for (int i = 0; i < n; i++)
+        {
+            k=1;
+            for (int j = 0; j < n; j++)
+            {
+                if (arr[i]==arr[j]&&i!=j)
+                {
+                    k++;
+                }
+                
+            }
+            printf("%d\'s frequency is : %d\n",arr[i],k);
+            
+        }
+        
+    }
+    int main()
+    {
+        int n=10,arr[10]={10,25,15,13,11,13,45,9,11,31};
+        frequency(arr,n);
+        return 0;
+    }
