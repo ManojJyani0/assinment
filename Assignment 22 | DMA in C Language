@@ -1,0 +1,262 @@
+1.  // Define a function to input variable length string and store it in an array without memory wastage.
+    #include <stdio.h>
+    #include<stdlib.h>
+    #include<string.h>
+    char* input(char *ptr)
+    {
+        char s[20];
+        int l;
+        fgets(s,20,stdin);
+        l=strlen(s);
+        ptr=(char*)calloc(l+1,sizeof(char));
+        strcpy(ptr,s);
+        return ptr;
+    }
+
+    int main()
+    {
+        char *ptr;
+        ptr=input(ptr);
+        printf("%s",ptr);
+        return 0;
+    }
+
+2.  // Write a program to ask the user to input a number of data values he would like to enter then create an array dynamically to accommodate the data values. Now take the input from the user and display the average of data values.
+    #include<stdio.h>
+    #include<stdlib.h>
+    int main(int argc, char const *argv[])
+    {
+        int lenth,*ptr=NULL;
+        float sum=0.0;
+        printf("Enter the Number of Data :");
+        scanf("%d",&lenth);
+        ptr=(int*)calloc(lenth,sizeof(int));
+        printf("Enter %d values :",lenth);
+        for (int i = 0; i < lenth; i++)
+        {
+            scanf("%d",ptr+i);
+        }
+        for (int i = 0; i < lenth; i++)
+        {
+            sum+=*(ptr+i);
+        }
+        printf("average of %d number is %0.2f:",lenth,sum/lenth);
+        free(ptr);
+        
+        return 0;
+    }
+
+3.  // Write a program to calculate the sum of n numbers entered by the user using malloc and free.
+    #include<stdio.h>
+    #include<stdlib.h>
+    int main(int argc, char const *argv[])
+    {
+        int lenth,*ptr=NULL;
+        float sum=0.0;
+        printf("Enter the Number of Data :");
+        scanf("%d",&lenth);
+        ptr=(int*)calloc(lenth,sizeof(int));
+        printf("Enter %d values :",lenth);
+        for (int i = 0; i < lenth; i++)
+        {
+            scanf("%d",ptr+i);
+            sum+=*(ptr+i);
+        }
+        printf("Sum of %d number is %0.2f:",lenth,sum);
+        free(ptr);
+        
+        return 0;
+    }
+
+4.  // Write a program to input and print text using dynamic memory allocation.
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <conio.h>
+    int main(int argc, char const *argv[])
+    {
+        char *ptr;
+        ptr=(char*)calloc(20,sizeof(char));
+        printf("Enter your name : ");
+        fgets(ptr,20,stdin);
+        printf("Hello,... %s! \n",ptr);
+        free(ptr);
+        return 0;
+    }
+
+5.  // Write a program to read a one dimensional array, print sum of all elements along with inputted array elements using dynamic memory allocation.
+    #include <stdio.h>
+    #include <stdlib.h>
+    int total()
+    {
+        int *ptr,n,sum=0;
+        printf("Enter num of values:");
+        scanf("%d",&n);
+        ptr = (int*)calloc(n,sizeof(int));
+        for (int i = 0; i < n; i++)
+        {
+            scanf("%d",ptr[i]);
+            sum+=ptr[i];
+        }
+        free(ptr);
+        return sum;
+    }
+    int main(int argc, char const *argv[])
+    {
+        printf("Sum of you entered value is : %d\n",total());
+        return 0;
+    }
+
+6.  // Write a program in C to find the largest element using Dynamic Memory Allocation.
+    #include<stdio.h>
+    #include<stdlib.h>
+    int findmax ()
+    {
+        int *p,n,temp;
+        printf("Enter the size of array:");
+        scanf("%d",&n);
+        p=(int*)calloc(n,sizeof(int));
+        printf("Enter the values:");
+        for (int i = 0; i < n; i++)
+        {
+            scanf("%d",(p+i));
+        }
+        for (int i = 0; i < n; i++)
+        {
+            for(int j=i;j<n;j++)
+            {
+                if (*(p+i)>*(p+j))
+                {
+                    temp=p[i];
+                    p[i]=p[j];
+                    p[j]=temp;
+                }
+            }
+        }
+        temp=*(p+n-1);
+        free(p);
+        return temp;
+    }
+    int main(int argc, char const *argv[])
+    {
+        printf("largest element using Dynamic Memory Allocation = %d",findmax());
+        return 0;
+    }
+
+7.  // Write a program to demonstrate memory leak in C.
+    #include <stdio.h>
+    #include <stdlib.h>
+    int total()
+    {
+        int *ptr,n,sum=0;
+        printf("Enter num of values:");
+        scanf("%d",&n);
+        ptr = (int*)calloc(n,sizeof(int));
+        for (int i = 0; i < n; i++)
+        {
+            scanf("%d",ptr[i]);
+            sum+=ptr[i];
+        }
+        //free(ptr);
+        return sum;
+        //there are memory leak
+
+    }
+    int main(int argc, char const *argv[])
+    {
+        printf("Sum of you entered value is : %d\n",total());
+        return 0;
+    }
+
+8.  // Write a program to demonstrate dangling pointers in C.
+    #include <stdio.h>
+    #include <stdlib.h>
+    int* total(int n)
+    {
+        int *ptr,sum=0;
+        ptr = (int*)calloc(n,sizeof(int));
+        for (int i = 0; i < n; i++)
+        {
+            scanf("%d",(ptr+i));
+            sum+=*(ptr+i);
+        }
+        free(ptr);
+        return ptr;
+
+    }
+    int main(int argc, char const *argv[])
+    {
+        int*p,n;
+        printf("Enter num of values:");
+        scanf("%d",&n);
+        p=total(n);
+        for (int i = 0; i < n; i++)
+        {
+            printf("%d ",*(p+i));
+        }
+        
+        return 0;
+    }
+
+9.  // Write a program to allocate memory dynamically of the size in bytes entered by the user. Also handle the case when memory allocation is failed.
+    #include<stdio.H>
+    #include<stdlib.h>
+    int main(int argc, char const *argv[])
+    {
+        int *ptr=NULL,n=0;
+        printf("Enter the size of a variable in bytes:");
+        scanf("%d",&n);
+        if (ptr=(int*)malloc(n))
+            printf("Memory allocated sucesfully\n");
+        else
+        {
+            printf("Some error acuare Memory NOT ALLOCATED");
+            exit(0);
+        }
+        free(ptr);
+        return 0;
+    }
+
+10. // Find out the maximum and minimum from an array using dynamic memory allocation in C.
+    #include<stdio.h>
+    #include<stdlib.h>
+    struct DATA
+    {
+        int max;
+        int min;
+    };
+    struct DATA find ()
+    {
+        int *p,n,temp;
+        struct DATA minmax;
+        printf("Enter the size of array:");
+        scanf("%d",&n);
+        p=(int*)calloc(n,sizeof(int));
+        printf("Enter the values:");
+        for (int i = 0; i < n; i++)
+        {
+            scanf("%d",(p+i));
+        }
+        for (int i = 0; i < n; i++)
+        {
+            for(int j=i;j<n;j++)
+            {
+                if (*(p+i)>*(p+j))
+                {
+                    temp=p[i];
+                    p[i]=p[j];
+                    p[j]=temp;
+                }
+            }
+        }
+        minmax.max=*(p+n-1);
+        minmax.min=*(p+0);
+        free(p);
+        return minmax;
+    }
+    int main(int argc, char const *argv[])
+    {
+        struct DATA data;
+        data=find();
+        printf("maximam = %d, minimam = %d",data.max,data.min);
+        return 0;
+    }
