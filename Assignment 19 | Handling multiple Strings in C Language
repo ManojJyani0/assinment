@@ -141,15 +141,26 @@
 7.  // From the list of IP addresses, check whether all ip addresses are valid.
     #include<stdio.h>
     #include<string.h>
+    #include<stdlib.h>
     int main()
     {
-        char ipAdd[5][15]={"190.225.145.3","190.225.145.3","190.225.145.3","190.225.145.3","253.198.654.124"},check[15]={"225.225.225.225"};
-        for (int i = 0; i < 5; i++)
+        char ipAdd[5][15]={"190.225.145.3","190.225.145.3","125.225.145.3","190.225.145.3","253.18.654.124"};
+        char *ptr,s[2]=".";
+        int temp,i=0;
+        for (int  i = 0; i < 5; i++)
         {
-            if(strcmp(ipAdd[i],check)>0)
-            printf("This ip  is not valid is :%s \n",ipAdd[i]);
+            ptr=strtok(ipAdd[i],s);
+            while (ptr!=NULL)
+            {
+                temp=atoi(ptr);
+                if (temp>255)
+                    {
+                        printf("%d this ip address not valid.\n",i+1);
+                        break;
+                    }
+                ptr=strtok(NULL,s);
+            }
         }
-        return 0;
     }
 
 8.  // Given a list of words followed by two words, the task is to find the minimum distance between the given two words in the list of words. (Example : s = {“the”,”quick”,”brown”,”fox”,”quick”} word1 = “the”, word2 = “fox”, OUTPUT : 1 )
